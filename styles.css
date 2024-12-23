@@ -25,6 +25,9 @@ img{
 }
 
 body{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
     font-family: 'DMSans';
     font-size: var(--fontsize-body);
     font-weight: 400;
@@ -45,8 +48,9 @@ h2{
 small{
     font-size: var(--fontsize-body);
 }
-
-
+.attribution{
+    margin-inline-start: 50%;
+}
 /* grid */
 .bento-grid-container{
     display: grid;
