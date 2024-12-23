@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'DMSans';
+    src: url(assets/fonts/DMSans-VariableFont_opsz\,wght.ttf) format('truetype');
+}
+
+:root{
+    --Purple100: hsl(254, 88%, 90%);
+    --Purple500: hsl(256, 67%, 59%);
+
+    --Yellow100: hsl(31, 66%, 93%);
+    --Yellow500: hsl(39, 100%, 71%);
+    --fontsize-body: 1rem;
+    --fontsize-heading: 1.5rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 80%;
+    display:block;
+}
+
+body{
+    font-family: 'DMSans';
+    font-size: var(--fontsize-body);
+    font-weight: 400;
+    color: black;
+    background-color: white;
+    padding: 2rem 1rem;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+h2{
+    font-size: var(--fontsize-heading);
+    font-weight: 600;
+    line-height: 1;
+}
+small{
+    font-size: var(--fontsize-body);
+}
+
+
+/* grid */
+.bento-grid-container{
+    display: grid;
+    grid-template-rows: 13rem 13rem 13rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        'column1 column2 column3'
+        'column1 column2 column3'
+        'column1 column4 column4'
+    ;
+    gap: 1rem;
+    max-width: 60rem;
+    margin-inline: auto;
+}
+/* acces all children and inside them*/
+.bento-grid-container > *, .parent-card { 
+    display: grid;
+    gap: 1rem;
+}
+.parent-card{
+    grid-template-columns: 1fr 1fr;
+}
+.parent-card:nth-child(1){
+    grid-template-columns: .925fr 2fr;
+}
+.column-one{
+    grid-area: column1;
+}
+.column-two{
+    grid-area: column2;
+}
+.column-three{
+    grid-area: column3;
+}
+.column-four{
+    grid-area: column4;
+}
+.bento-item--element{
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+/* UI */
+/* help */
+.grid{
+    display: grid;
+    gap: 1rem;
+}
+.create{
+    place-content: center;
+    padding: 2rem;
+    background-color: var(--Yellow100);
+}
+.content{
+    place-content: center;
+    padding: 1.5rem;
+    background-color: var(--Yellow500);
+}
+.fasterAI{
+    place-content: center;
+    color: white;
+    text-align: center;
+    background-color: var(--Purple500);
+}
+.fasterAI img{
+    max-width: 10rem;
+    margin-inline: auto;
+}
+.card1{
+    position: relative;
+    background-color: white;
+    overflow-x: hidden;
+}
+.card1 img{
+    position: relative;
+    right: -2rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+.card2{
+    position: relative;
+    background-color: var(--Yellow500);
+    overflow-y: hidden;
+}
+.card2 img{
+    position: absolute;
+    bottom: -4.5rem;
+    left: 1.4rem;
+}
+.schedule{
+    place-content: center;
+    padding-left: 1.5rem;
+    overflow: hidden;
+    background-color: var(--Purple100);
+}
+.schedule img{
+    position: relative;
+    right: -4rem;   
+    max-width: 100%;
+}
+.growth-square{
+    place-content: center;
+    background-color: white;
+}
+.growth-long{
+    color: white;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    padding: 0;
+    background-color: var(--Purple500);
+}
+
+/* responsiveness */
+@media screen and (max-width: 950px){
+    .bento-grid-container{
+        grid-template-rows: 13rem 13rem 13rem 13rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'column2 column3'
+            'column2 column3'
+            'column4 column4'
+            'column1 column1'
+        ;
+        
+    }
+    .column-one{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .bento-grid-container{
+        gap: 2rem;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'column2'
+            'column3'
+            'column4'
+            'column1'
+        ;
+        
+    }
+    .bento-grid-container > *, .parent-card { 
+        gap: 2rem;
+    }
+    .column-one{
+        grid-template-columns: 1fr 1fr;
+    }
+    .parent-card, .parent-card:nth-child(1), .column-one{
+        grid-template-columns: 1fr;
+    }
+    .card1 img{
+        position: relative;
+        max-width: 80%;
+        margin-bottom: 1rem;
+    }
+    .card2 img{
+        position: relative;
+        bottom: -2rem;
+        left: 0;
+    }
+    .growth-long{
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .schedule img{
+        position: relative;
+        right: -3rem;   
+        max-width: 100%;
+    }
+}
